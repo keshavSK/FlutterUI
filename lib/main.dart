@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_component/screens/ListViewScreen.dart';
 import 'package:flutter_ui_component/screens/LoginScreen.dart';
 import 'package:flutter_ui_component/screens/RegistrationScreen.dart';
+import 'package:flutter_ui_component/screens/SplashScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LoginScreen(),
+      home: SplashScreen(),
     );
   }
 }

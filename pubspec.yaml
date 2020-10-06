@@ -50,6 +50,8 @@ flutter:
   assets:
     - images/google_logo.png
     - images/ic_user_dummy.jpg
+    - images/splash_screen.webp
+    - images/splash_screen.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
