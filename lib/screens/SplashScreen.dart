@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_component/screens/ListViewScreen.dart';
+import 'package:flutter_ui_component/screens/HomeScreen.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -31,9 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void navigationPage() {
-    Navigator.pushReplacement(
-        context,
-        new MaterialPageRoute(
-            builder: (BuildContext context) => ListViewScreen()));
+    Navigator.pushReplacement(context,
+        new MaterialPageRoute(builder: (BuildContext context) => HomeScreen()));
   }
 }
