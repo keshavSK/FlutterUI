@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_component/screens/HomeScreen.dart';
+import 'package:flutter_ui_component/screens/RegistrationScreen.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -32,6 +33,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void navigationPage() {
     Navigator.pushReplacement(context,
-        new MaterialPageRoute(builder: (BuildContext context) => HomeScreen()));
+        new MaterialPageRoute(builder: (BuildContext context) => RegistrationScreen()));
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_component/Utils/Contants.dart';
 
 class RegistrationScreen extends StatefulWidget {
   final String username;
@@ -16,6 +15,14 @@ class RegistrationScreen extends StatefulWidget {
 class _RegistrationScreenState extends State<RegistrationScreen> {
   var emailController;
   String username, password;
+  List<AndroidVersion> androidVersionList = <AndroidVersion>[
+    AndroidVersion("1", "Jelly Bean"),
+    AndroidVersion("2", "Kit Kat"),
+    AndroidVersion("3", "Lollipop"),
+    AndroidVersion("4", "Marshmallow"),
+    AndroidVersion("5", "Nought"),
+  ];
+  AndroidVersion version;
 
   @override
   void initState() {
@@ -30,37 +37,83 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       appBar: AppBar(
         title: Text('Registration'),
       ),
-      body: Center(
-        child: Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.elliptical(70, 5)),
-              border: Border.all(color: Colors.deepOrange, width: 10),
-              color: Colors.green),
-          margin: EdgeInsets.all(8.0),
-          padding:
-              EdgeInsets.only(top: 20.0, bottom: 20.0, left: 20.0, right: 20.0),
-          child: Row(
-            children: [
-              Text(
-                '$username',
-                style: TextStyle(fontSize: 20.0, color: colorRed),
-              ),
-              Expanded(
-                child: Text(
-                  'Kotlin $password',
-                  style: TextStyle(fontSize: 20.0, color: Colors.black),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            DropdownButton<AndroidVersion>(
+              hint: Text('Select Version'),
+              value: version,
+              items: androidVersionList.map((e) {
+                return new DropdownMenuItem(
+                  value: e,
+                  child: Text(e.versionName),
+                );
+              }).toList(),
+              onChanged: (value) {
+                setState(() {
+                  version = value;
+                });
+              },
+            ),
+            version == null
+                ? Container()
+                : Text(
+                    'Selected Version :${version.versionId} : ${version.versionName}'),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    "Hello flutter I'm new this framework. Hello flutter I'm new this framework  ",
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 18.0,
+                    ),
+                  ),
                 ),
-              ),
-              Expanded(
-                child: Text(
-                  'Java',
-                  style: TextStyle(fontSize: 20.0, color: colorRed),
+              ],
+            ),
+            Row(
+              children: [
+                Expanded(
+                  flex: 4,
+                  child: Text(
+                    "Hello flutter",
+                    style: TextStyle(
+                      fontSize: 18.0,
+                    ),
+                  ),
                 ),
-              )
-            ],
-          ),
+                Expanded(
+                  flex: 3,
+                  child: Text(
+                    "Hello flutter ",
+                    style: TextStyle(
+                      fontSize: 18.0,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Text(
+                    "Hello flutter ",
+                    style: TextStyle(
+                      fontSize: 18.0,
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );
   }
+}
+
+class AndroidVersion {
+  String versionId;
+  String versionName;
+
+  AndroidVersion(this.versionId, this.versionName);
 }
