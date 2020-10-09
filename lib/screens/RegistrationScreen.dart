@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_component/screens/AttachementScreen.dart';
+import 'package:image_picker/image_picker.dart';
 
 class RegistrationScreen extends StatefulWidget {
   final String username;
@@ -23,6 +27,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     AndroidVersion("5", "Nought"),
   ];
   AndroidVersion version;
+  File _selectedFile;
 
   @override
   void initState() {
@@ -103,10 +108,47 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   ),
                 ),
               ],
-            )
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            RaisedButton(
+              onPressed: () {
+                _showAlertDialog(context);
+              },
+              color: Colors.green,
+              child: Text('Browse Image'),
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            _selectedFile == null
+                ? Container()
+                : Image.file(
+                    _selectedFile,
+                    height: 200.0,
+                  )
           ],
         ),
       ),
+    );
+  }
+
+  _showAlertDialog(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (_) {
+        return AttachementScreen(
+          valueChanged: (value) {
+            if (value != null) {
+              setState(() {
+                PickedFile file = value;
+                _selectedFile = new File(file.path);
+              });
+            }
+          },
+        );
+      },
     );
   }
 }
