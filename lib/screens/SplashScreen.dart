@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ui_component/screens/HomeScreen.dart';
 import 'package:flutter_ui_component/screens/RegistrationScreen.dart';
 import 'package:flutter_ui_component/screens/UserListScreen.dart';
+import 'package:flutter_ui_component/screens/UserScreen.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -34,6 +35,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void navigationPage() {
     Navigator.pushReplacement(context,
-        new MaterialPageRoute(builder: (BuildContext context) => UserListScreen()));
+        new MaterialPageRoute(builder: (BuildContext context) => UserScreen()));
   }
 }
