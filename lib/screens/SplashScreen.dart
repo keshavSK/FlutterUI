@@ -1,10 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_component/screens/HomeScreen.dart';
-import 'package:flutter_ui_component/screens/RegistrationScreen.dart';
-import 'package:flutter_ui_component/screens/UserListScreen.dart';
-import 'package:flutter_ui_component/screens/UserScreen.dart';
+import 'package:flutter_ui_component/screens/UserPostScreen.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -34,7 +31,9 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void navigationPage() {
-    Navigator.pushReplacement(context,
-        new MaterialPageRoute(builder: (BuildContext context) => UserScreen()));
+    Navigator.pushReplacement(
+        context,
+        new MaterialPageRoute(
+            builder: (BuildContext context) => UserPostScreen()));
   }
 }
