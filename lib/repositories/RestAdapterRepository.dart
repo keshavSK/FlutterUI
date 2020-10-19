@@ -5,7 +5,8 @@ import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 
 class RestAdapterRepository {
-  static const BASE_URL = "https://jsonplaceholder.typicode.com/";
+  // static const BASE_URL = "https://jsonplaceholder.typicode.com/";
+  static const BASE_URL = "";
 
   Future<Object> executeGET(
       String endPoint, Map<String, dynamic> paramsMaps) async {
